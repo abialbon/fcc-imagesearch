@@ -1,0 +1,30 @@
+{
+  "name": "image-search",
+  "version": "1.0.0",
+  "description": "Simple image search and track API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abialbon/fcc-imagesearch.git"
+  },
+  "keywords": [
+    "FCC",
+    "image",
+    "search"
+  ],
+  "author": "Abialbon Paul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abialbon/fcc-imagesearch/issues"
+  },
+  "homepage": "https://github.com/abialbon/fcc-imagesearch#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "google-images": "^2.1.0",
+    "mongoose": "^4.11.14"
+  }
+}
