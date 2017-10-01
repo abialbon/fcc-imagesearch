@@ -5,8 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FCC - Iamge Search Abstraction Layer</title>
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+        #search {
+            cursor: pointer;
+        }
+    </style>
+    </head>
 <body>
-    <p>This is going to be my home page.</p>
+    <div class="container-fluid">
+        <div class="jumbotron">
+          <h1 class="display-5">Image Search Abstraction Layer</h1>
+          <p class="lead">A simple API to search google images and keep track of recent searches.</p>
+          <hr class="my-4">
+          <p>A project by Abialbon Paul</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Recent Searches</h2>
+                    <ul class="list-group">
+                    <% for (var i = 0; i < searchHistory.length; i++) { %>
+                        <a href="<%= searchUrl + searchHistory[i].searchTerm %>"><li class="list-group-item"><%= searchHistory[i].searchTerm %></li></a>
+                    <% } %>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h2>Search here !</h2>
+                    <form>
+                      <div class="form-group">
+                        <label for="Search">Search</label>
+                        <input type="text" class="form-control" id="searchterm" aria-describedby="searchterm" placeholder="What would you like to search for?">
+                      </div>
+                      <div class="form-group">
+                        <label for="Page">Page</label>
+                        <input type="number" class="form-control" id="offset" placeholder="e.g. 1">
+                      </div>
+                      <div id="search" onclick="search()" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function search() {
+            var searchTerm = document.getElementById('searchterm').value;
+            var offset = document.getElementById('offset').value || 1;
+            var link = '<%= searchUrl %>' + searchTerm + '?offset=' + offset ;
+            searchTerm = '';
+            offset = 0;
+            console.log(link);
+            window.location.href = link;
+        }
+    </script>
 </body>
 </html>
